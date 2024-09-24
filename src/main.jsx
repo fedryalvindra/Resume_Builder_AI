@@ -14,14 +14,14 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/",
-        element: <Home />,
-      },
-      {
         path: "/dashboard",
         element: <Dashboard />,
       },
     ],
+  },
+  {
+    path: "/",
+    element: <Home />,
   },
   {
     path: "/auth/sign-in",
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </ClerkProvider>
   </StrictMode>,
 );
