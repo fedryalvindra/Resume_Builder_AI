@@ -6,7 +6,7 @@ function Header() {
   const { user, isSignedIn } = useUser();
   return (
     <header className="flex justify-between p-3 px-5 shadow-md">
-      <img width={200} height={100} src="logo.png" alt="logo" />
+      <img width={200} height={100} src="/logo.png" alt="logo" />
       {isSignedIn ? (
         <div className="flex items-center gap-2">
           <Link to="/dashboard">

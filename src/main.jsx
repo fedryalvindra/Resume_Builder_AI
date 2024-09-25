@@ -7,8 +7,20 @@ import SignInPage from "./auth/sign-in/SignInPage.jsx";
 import Home from "./home/Home.jsx";
 import Dashboard from "./dashboard/Dashboard.jsx";
 import { ClerkProvider } from "@clerk/clerk-react";
+import EditCV from "./dashboard/cv/[cvID]/EditCV.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
+
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -16,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/cv/:cvID/edit",
+        element: <EditCV />,
       },
     ],
   },
@@ -32,7 +48,11 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
+
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </ClerkProvider>
   </StrictMode>,
 );
