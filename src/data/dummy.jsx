@@ -72,15 +72,15 @@ export default {
       name: "Angular",
     },
     {
-      id: 1,
+      id: 2,
       name: "React",
     },
     {
-      id: 1,
+      id: 3,
       name: "MySql",
     },
     {
-      id: 1,
+      id: 4,
       name: "React Native",
     },
   ],
