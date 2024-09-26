@@ -10,7 +10,6 @@ export default {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   experience: [
     {
-      id: 1,
       title: "Full Stack Developer",
       companyName: "Amazon",
       city: "New York",
@@ -27,7 +26,6 @@ export default {
         "and back-end systems.",
     },
     {
-      id: 2,
       title: "Frontend Developer",
       companyName: "Google",
       city: "Charlotte",
@@ -46,7 +44,6 @@ export default {
   ],
   education: [
     {
-      id: 1,
       universityName: "Western Illinois University",
       startDate: "Aug 2018",
       endDate: "Dec:2019",
@@ -56,7 +53,6 @@ export default {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud",
     },
     {
-      id: 2,
       universityName: "Western Illinois University",
       startDate: "Aug 2018",
       endDate: "Dec:2019",
@@ -68,19 +64,15 @@ export default {
   ],
   skills: [
     {
-      id: 1,
       name: "Angular",
     },
     {
-      id: 2,
       name: "React",
     },
     {
-      id: 3,
       name: "MySql",
     },
     {
-      id: 4,
       name: "React Native",
     },
   ],

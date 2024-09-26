@@ -10,7 +10,7 @@ export function useUpdateCV() {
     mutationFn: (cvData) => updateCV({ cv: { ...cvData }, cvID }),
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["cv"],
+        queryKey: ["userCV"],
       });
     },
     onError: (err) => console.log(err.message),

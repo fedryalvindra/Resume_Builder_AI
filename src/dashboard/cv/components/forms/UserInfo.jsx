@@ -5,7 +5,6 @@ import { useUpdateCV } from "@/dashboard/useUpdateCV";
 import { useToast } from "@/hooks/use-toast";
 import { LoaderCircle } from "lucide-react";
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
 
 function UserInfo({ enableNext }) {
   const { cvDetail, setCvDetail } = useContext(CVContext);
@@ -41,7 +40,7 @@ function UserInfo({ enableNext }) {
   }
 
   return (
-    <div className="mt-10 rounded-lg p-5 shadow-md">
+    <div className="mt-10 rounded-lg p-5 shadow-md border-t-2 border-slate-800">
       <h2 className="text-lg font-bold">Your Information</h2>
       <p>Get Started with the basic information</p>
       <form onSubmit={onSave}>

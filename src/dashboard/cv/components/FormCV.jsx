@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import UserSummary from "./forms/UserSummary";
 import Experience from "./forms/Experience";
+import Education from "./forms/Education";
 
 function FormCV() {
   const [activeForm, setActiveForm] = useState(1);
@@ -35,6 +36,7 @@ function FormCV() {
       {activeForm == 1 && <UserInfo enableNext={(v) => setEnableNext(v)} />}
       {activeForm == 2 && <UserSummary enableNext={(v) => setEnableNext(v)} />}
       {activeForm == 3 && <Experience enableNext={(v) => setEnableNext(v)} />}
+      {activeForm == 4 && <Education />}
     </div>
   );
 }

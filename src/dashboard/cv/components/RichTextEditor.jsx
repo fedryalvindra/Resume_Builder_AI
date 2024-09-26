@@ -22,7 +22,7 @@ import {
 const PROMPT =
   "position title: {positionTitle}, depends on position title give me 5-7 bullet points for my experience in resume, give me result with breakpoint";
 
-function RichTextEditor({ onRichTextEditorChange, index }) {
+function RichTextEditor({ onRichTextEditorChange, index, defaultValue }) {
   const { cvDetail, setCvDetail } = useContext(CVContext);
   const [value, setValue] = useState();
 
@@ -70,6 +70,7 @@ function RichTextEditor({ onRichTextEditorChange, index }) {
             setValue(e.target.value);
             onRichTextEditorChange(e);
           }}
+          defaultValue={defaultValue}
           disabled={isLoadingAI}
         ></Editor>
         <Toolbar>

@@ -33,3 +33,14 @@ export async function updateCV({ cv, cvID }) {
 
   return data;
 }
+
+export async function getUserCV(cvID) {
+  let { data: UserCV, error } = await supabase
+    .from("UserCV")
+    .select("*")
+    .eq("cvID", cvID)
+    .single();
+  if (error) throw new Error("Failed to get user cv");
+
+  return UserCV;
+}

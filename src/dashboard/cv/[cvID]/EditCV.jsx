@@ -1,18 +1,19 @@
-import { useParams } from "react-router-dom";
+import { CVContext } from "@/context/CVContext";
+import { useUserCV } from "@/dashboard/useUserCV";
+import { useEffect, useState } from "react";
 import FormCV from "../components/FormCV";
 import YourCV from "../components/YourCV";
-import { CVContext } from "@/context/CVContext";
-import { useEffect, useState } from "react";
-import dummy from "@/data/dummy";
 
 function EditCV() {
-  const { cvID } = useParams();
+  const { userCV, isLoading } = useUserCV();
   const [cvDetail, setCvDetail] = useState();
   useEffect(() => {
-    setCvDetail(dummy);
-  }, []);
+    setCvDetail(userCV);
+  }, [userCV]);
+  if (isLoading) return;
+
   return (
-    <CVContext.Provider value={{cvDetail, setCvDetail}}>
+    <CVContext.Provider value={{ cvDetail, setCvDetail }}>
       <div className="grid grid-cols-1 gap-10 p-10 md:grid-cols-2">
         <FormCV />
         <YourCV />

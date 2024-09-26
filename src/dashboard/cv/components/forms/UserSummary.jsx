@@ -57,7 +57,7 @@ function UserSummary() {
 
   return (
     <div>
-      <div className="mt-10 rounded-lg p-5 shadow-md">
+      <div className="mt-10 rounded-lg p-5 shadow-md border-t-2 border-slate-800">
         <h2 className="text-lg font-bold">Your Summary</h2>
         <p>Generate your summary more effective using AI</p>
         <form className="mt-7" onSubmit={handleSubmit}>

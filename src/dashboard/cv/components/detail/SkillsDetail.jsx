@@ -5,7 +5,7 @@ function SkillsDetail({ cvDetail }) {
       <hr />
       <div>
         <span className="text-xs font-bold">Skills:</span>
-        {cvDetail?.skills.map((skill, i) => (
+        {cvDetail?.skills?.map((skill, i) => (
           <span key={skill?.id} className="text-xs">
             {" "}
             {skill?.name}

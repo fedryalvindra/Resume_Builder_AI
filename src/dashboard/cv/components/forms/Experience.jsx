@@ -3,6 +3,8 @@ import { Input } from "@/components/ui/input";
 import { useContext, useEffect, useState } from "react";
 import RichTextEditor from "../RichTextEditor";
 import { CVContext } from "@/context/CVContext";
+import { useUpdateCV } from "@/dashboard/useUpdateCV";
+import { toast } from "@/hooks/use-toast";
 
 const formField = {
   title: "",
@@ -14,9 +16,37 @@ const formField = {
   workSummery: "",
 };
 function Experience() {
-  const [experienceList, setExperienceList] = useState([]);
   const { cvDetail, setCvDetail } = useContext(CVContext);
+  const [experienceList, setExperienceList] = useState(
+    cvDetail?.experience
+      ? cvDetail?.experience
+      : [
+          {
+            title: "",
+            companyName: "",
+            city: "",
+            state: "",
+            startDate: "",
+            endDate: "",
+            workSummery: "",
+          },
+        ],
+  );
+  const { mutate, isPending } = useUpdateCV();
 
+  function onSave() {
+    if (!experienceList.length) return;
+    mutate(
+      { experience: experienceList },
+      {
+        onSuccess: () =>
+          toast({
+            title: "CV Updated",
+            description: "Your information successfully updated",
+          }),
+      },
+    );
+  }
   function handleChange(i, e) {
     const newEntries = experienceList.slice();
     const { name, value } = e.target;
@@ -58,37 +88,51 @@ function Experience() {
 
   return (
     <div>
-      <div className="rounded-md p-5 shadow-md">
+      <div className="my-10 rounded-md border-t-2 border-slate-800 p-5 shadow-md">
         <h2 className="text-lg font-bold">Experience</h2>
         <p>Add your experience</p>
-        <div>
-          {experienceList.map((item, i) => (
+        <div className="my-2">
+          {experienceList?.map((item, i) => (
             <div key={i}>
               <div className="my-5 grid grid-cols-2 gap-3 rounded-lg border p-3">
                 <div>
                   <label className="text-xs">Position Title</label>
-                  <Input name="title" onChange={(e) => handleChange(i, e)} />
+                  <Input
+                    name="title"
+                    defaultValue={item?.title}
+                    onChange={(e) => handleChange(i, e)}
+                  />
                 </div>
                 <div>
                   <label className="text-xs">Company Name</label>
                   <Input
                     name="companyName"
+                    defaultValue={item?.companyName}
                     onChange={(e) => handleChange(i, e)}
                   />
                 </div>
                 <div>
                   <label className="text-xs">City</label>
-                  <Input name="city" onChange={(e) => handleChange(i, e)} />
+                  <Input
+                    name="city"
+                    defaultValue={item?.city}
+                    onChange={(e) => handleChange(i, e)}
+                  />
                 </div>
                 <div>
                   <label className="text-xs">State</label>
-                  <Input name="state" onChange={(e) => handleChange(i, e)} />
+                  <Input
+                    name="state"
+                    defaultValue={item?.state}
+                    onChange={(e) => handleChange(i, e)}
+                  />
                 </div>
                 <div>
                   <label className="text-xs">Start Date</label>
                   <Input
                     type="date"
                     name="startDate"
+                    defaultValue={item?.startDate}
                     onChange={(e) => handleChange(i, e)}
                   />
                 </div>
@@ -97,12 +141,14 @@ function Experience() {
                   <Input
                     type="date"
                     name="endDate"
+                    defaultValue={item?.endDate}
                     onChange={(e) => handleChange(i, e)}
                   />
                 </div>
                 <div className="col-span-2">
                   <RichTextEditor
                     index={i}
+                    defaultValue={item?.workSummery}
                     onRichTextEditorChange={(e) =>
                       handleRichTextEditor(e, "workSummery", i)
                     }
@@ -129,7 +175,9 @@ function Experience() {
               Remove
             </Button>
           </div>
-          <Button className="text-white">Save</Button>
+          <Button className="text-white" onClick={onSave} disabled={isPending}>
+            Save
+          </Button>
         </div>
       </div>
     </div>
