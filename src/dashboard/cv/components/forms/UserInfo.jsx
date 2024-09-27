@@ -40,7 +40,7 @@ function UserInfo({ enableNext }) {
   }
 
   return (
-    <div className="mt-10 rounded-lg p-5 shadow-md border-t-2 border-slate-800">
+    <div className="mt-10 rounded-lg border-t-2 border-slate-800 p-5 shadow-md">
       <h2 className="text-lg font-bold">Your Information</h2>
       <p>Get Started with the basic information</p>
       <form onSubmit={onSave}>
@@ -52,27 +52,58 @@ function UserInfo({ enableNext }) {
               defaultValue={cvDetail?.firstName}
               required
               onChange={handleInputChange}
+              autocomplete="off"
             />
           </div>
           <div>
             <label className="text-sm">Last Name</label>
-            <Input name="lastName" defaultValue={cvDetail?.lastName} required onChange={handleInputChange} />
+            <Input
+              name="lastName"
+              defaultValue={cvDetail?.lastName}
+              autocomplete="off"
+              required
+              onChange={handleInputChange}
+            />
           </div>
           <div className="col-span-2">
             <label className="text-sm">Job Title</label>
-            <Input name="jobTitle" defaultValue={cvDetail?.jobTitle} required onChange={handleInputChange} />
+            <Input
+              name="jobTitle"
+              defaultValue={cvDetail?.jobTitle}
+              autocomplete="off"
+              required
+              onChange={handleInputChange}
+            />
           </div>
           <div className="col-span-2">
             <label className="text-sm">Address</label>
-            <Input name="address" defaultValue={cvDetail?.address} required onChange={handleInputChange} />
+            <Input
+              name="address"
+              defaultValue={cvDetail?.address}
+              autocomplete="off"
+              required
+              onChange={handleInputChange}
+            />
           </div>
           <div>
             <label className="text-sm">Phone</label>
-            <Input name="phone" defaultValue={cvDetail?.phone} required onChange={handleInputChange} />
+            <Input
+              name="phone"
+              defaultValue={cvDetail?.phone}
+              autocomplete="off"
+              required
+              onChange={handleInputChange}
+            />
           </div>
           <div>
             <label className="text-sm">Email</label>
-            <Input name="email" defaultValue={cvDetail?.email} required onChange={handleInputChange} />
+            <Input
+              name="email"
+              defaultValue={cvDetail?.email}
+              autocomplete="off"
+              required
+              onChange={handleInputChange}
+            />
           </div>
         </div>
         <div className="mt-3 flex justify-end">

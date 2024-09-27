@@ -5,6 +5,7 @@ import RichTextEditor from "../RichTextEditor";
 import { CVContext } from "@/context/CVContext";
 import { useUpdateCV } from "@/dashboard/useUpdateCV";
 import { toast } from "@/hooks/use-toast";
+import { LoaderCircle } from "lucide-react";
 
 const formField = {
   title: "",
@@ -101,6 +102,8 @@ function Experience() {
                     name="title"
                     defaultValue={item?.title}
                     onChange={(e) => handleChange(i, e)}
+                    disabled={isPending}
+                    autocomplete="off"
                   />
                 </div>
                 <div>
@@ -109,6 +112,8 @@ function Experience() {
                     name="companyName"
                     defaultValue={item?.companyName}
                     onChange={(e) => handleChange(i, e)}
+                    disabled={isPending}
+                    autocomplete="off"
                   />
                 </div>
                 <div>
@@ -117,6 +122,8 @@ function Experience() {
                     name="city"
                     defaultValue={item?.city}
                     onChange={(e) => handleChange(i, e)}
+                    disabled={isPending}
+                    autocomplete="off"
                   />
                 </div>
                 <div>
@@ -125,6 +132,8 @@ function Experience() {
                     name="state"
                     defaultValue={item?.state}
                     onChange={(e) => handleChange(i, e)}
+                    disabled={isPending}
+                    autocomplete="off"
                   />
                 </div>
                 <div>
@@ -134,6 +143,8 @@ function Experience() {
                     name="startDate"
                     defaultValue={item?.startDate}
                     onChange={(e) => handleChange(i, e)}
+                    disabled={isPending}
+                    autocomplete="off"
                   />
                 </div>
                 <div>
@@ -143,6 +154,8 @@ function Experience() {
                     name="endDate"
                     defaultValue={item?.endDate}
                     onChange={(e) => handleChange(i, e)}
+                    disabled={isPending}
+                    autocomplete="off"
                   />
                 </div>
                 <div className="col-span-2">
@@ -164,6 +177,7 @@ function Experience() {
               className="hover:bg-slate-50"
               variant="outline"
               onClick={addNewExperience}
+              disabled={isPending}
             >
               + Add New Experience
             </Button>
@@ -171,12 +185,13 @@ function Experience() {
               className="hover:bg-slate-50"
               variant="outline"
               onClick={removeExperience}
+              disabled={isPending}
             >
               Remove
             </Button>
           </div>
           <Button className="text-white" onClick={onSave} disabled={isPending}>
-            Save
+            {isPending ? <LoaderCircle className="animate-spin" /> : "Save"}
           </Button>
         </div>
       </div>

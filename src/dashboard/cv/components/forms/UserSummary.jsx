@@ -57,7 +57,7 @@ function UserSummary() {
 
   return (
     <div>
-      <div className="mt-10 rounded-lg p-5 shadow-md border-t-2 border-slate-800">
+      <div className="mt-10 rounded-lg border-t-2 border-slate-800 p-5 shadow-md">
         <h2 className="text-lg font-bold">Your Summary</h2>
         <p>Generate your summary more effective using AI</p>
         <form className="mt-7" onSubmit={handleSubmit}>
@@ -79,6 +79,7 @@ function UserSummary() {
             onChange={(e) => setSummary(e.target.value)}
             defaultValue={cvDetail?.summary}
             disabled={isLoadingAI}
+            autocomplete="off"
           />
           <div className="mt-2 flex justify-end">
             <Button className="text-white" disabled={isPending}>
@@ -89,7 +90,7 @@ function UserSummary() {
       </div>
 
       {aiGeneratedList && (
-        <div className="mt-10 rounded-lg p-5 shadow-md space-y-2 border-t-4 border-slate-800">
+        <div className="mt-10 space-y-2 rounded-lg border-t-4 border-slate-800 p-5 shadow-md">
           <h2 className="mt-2 text-lg font-bold">AI Suggestions</h2>
           <div className="flex flex-col gap-2">
             {/* {aiGeneratedList.map((item, i) => (

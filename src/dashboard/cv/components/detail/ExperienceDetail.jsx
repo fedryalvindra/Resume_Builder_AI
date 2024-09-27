@@ -9,7 +9,7 @@ function ExperienceDetail({ cvDetail }) {
           <h2 className="flex justify-between text-xs">
             {experience?.companyName}, {experience?.city}, {experience?.state}
             <span>
-              {experience?.startDate} TO{" "}
+              {experience?.startDate} -{" "}
               {experience?.currentlyWorking ? "Present" : experience?.endDate}
             </span>
           </h2>

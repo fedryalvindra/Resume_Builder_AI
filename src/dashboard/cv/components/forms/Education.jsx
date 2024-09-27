@@ -4,11 +4,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { CVContext } from "@/context/CVContext";
 import { useUpdateCV } from "@/dashboard/useUpdateCV";
 import { toast } from "@/hooks/use-toast";
+import { LoaderCircle } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 
 function Education() {
   const { cvDetail, setCvDetail } = useContext(CVContext);
-  const [educationList, setEducationList] = useState(
+  const [educationList, setEducationList] = useState(() =>
     cvDetail?.education
       ? cvDetail?.education
       : [
@@ -95,6 +96,7 @@ function Education() {
                   onChange={(e) => handleChange(e, i)}
                   disabled={isPending}
                   defaultValue={item?.universityName}
+                  autocomplete="off"
                 />
               </div>
               <div>
@@ -104,6 +106,7 @@ function Education() {
                   onChange={(e) => handleChange(e, i)}
                   disabled={isPending}
                   defaultValue={item?.degree}
+                  autocomplete="off"
                 />
               </div>
               <div>
@@ -113,6 +116,7 @@ function Education() {
                   onChange={(e) => handleChange(e, i)}
                   disabled={isPending}
                   defaultValue={item?.major}
+                  autocomplete="off"
                 />
               </div>
               <div>
@@ -123,6 +127,7 @@ function Education() {
                   onChange={(e) => handleChange(e, i)}
                   disabled={isPending}
                   defaultValue={item?.startDate}
+                  autocomplete="off"
                 />
               </div>
               <div>
@@ -133,6 +138,7 @@ function Education() {
                   onChange={(e) => handleChange(e, i)}
                   disabled={isPending}
                   defaultValue={item?.endDate}
+                  autocomplete="off"
                 />
               </div>
               <div className="col-span-2">
@@ -142,6 +148,7 @@ function Education() {
                   onChange={(e) => handleChange(e, i)}
                   disabled={isPending}
                   defaultValue={item?.description}
+                  autocomplete="off"
                 />
               </div>
             </div>
@@ -167,7 +174,7 @@ function Education() {
             </Button>
           </div>
           <Button className="text-white" onClick={onSave} disabled={isPending}>
-            Save
+            {isPending ? <LoaderCircle className="animate-spin" /> : "Save"}
           </Button>
         </div>
       </div>

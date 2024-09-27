@@ -20,11 +20,11 @@ import {
 } from "react-simple-wysiwyg";
 
 const PROMPT =
-  "position title: {positionTitle}, depends on position title give me 5-7 bullet points for my experience in resume, give me result with breakpoint";
+  "position title: {positionTitle}, depends on position title give me 5-7 bullet points for my experience in resume, give me result with breakpoint for experience there is no experience level, fresher, and mid level like before just give me the text without title";
 
 function RichTextEditor({ onRichTextEditorChange, index, defaultValue }) {
   const { cvDetail, setCvDetail } = useContext(CVContext);
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(defaultValue);
 
   const generateSummeryFromAI = async () => {
     if (!cvDetail.experience[index].title) {
@@ -70,7 +70,6 @@ function RichTextEditor({ onRichTextEditorChange, index, defaultValue }) {
             setValue(e.target.value);
             onRichTextEditorChange(e);
           }}
-          defaultValue={defaultValue}
           disabled={isLoadingAI}
         ></Editor>
         <Toolbar>
