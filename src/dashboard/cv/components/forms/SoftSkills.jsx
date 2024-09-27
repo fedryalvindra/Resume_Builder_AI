@@ -6,12 +6,12 @@ import { toast } from "@/hooks/use-toast";
 import { LoaderCircle } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 
-function Skills() {
+function SoftSkills() {
   const { cvDetail, setCvDetail } = useContext(CVContext);
 
   const [skillList, setSkillList] = useState(() =>
-    cvDetail?.skills
-      ? cvDetail?.skills
+    cvDetail?.softSkills
+      ? cvDetail?.softSkills
       : [
           {
             name: "",
@@ -36,7 +36,7 @@ function Skills() {
   };
 
   const removeSkill = () => {
-    setSkillList((skillList) => skillList.slice(0 - 1));
+    setSkillList((skillList) => skillList.slice(0, -1));
   };
 
   const onSave = () => {
@@ -47,7 +47,7 @@ function Skills() {
     });
     if (check) return;
     mutate(
-      { skills: skillList },
+      { softSkills: skillList },
       {
         onSuccess: () =>
           toast({
@@ -61,14 +61,14 @@ function Skills() {
   useEffect(() => {
     setCvDetail({
       ...cvDetail,
-      skills: skillList,
+      softSkills: skillList,
     });
   }, [skillList]);
 
   return (
     <div className="my-10 rounded-md border-t-2 border-slate-800 p-5 shadow-md">
-      <h2 className="text-lg font-bold">Skills</h2>
-      <p>Add your skills</p>
+      <h2 className="text-lg font-bold">Soft Skill</h2>
+      <p>Add your soft skills</p>
       <div>
         {skillList?.map((skill, i) => (
           <div key={i} className="my-2">
@@ -109,4 +109,4 @@ function Skills() {
   );
 }
 
-export default Skills;
+export default SoftSkills;

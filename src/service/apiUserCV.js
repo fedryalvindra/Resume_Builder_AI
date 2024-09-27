@@ -44,3 +44,8 @@ export async function getUserCV(cvID) {
 
   return UserCV;
 }
+
+export async function deleteCV(cvID) {
+  const { error } = await supabase.from("UserCV").delete().eq("cvID", cvID);
+  if (error) throw new Error("Failed to delete cv");
+}

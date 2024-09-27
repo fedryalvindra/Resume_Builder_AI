@@ -15,7 +15,7 @@ function ExperienceDetail({ cvDetail }) {
           </h2>
           {/* <p className="my-2 text-xs">{experience?.workSummery}</p> */}
           <div
-            className="text-xs"
+            className="text-sm"
             dangerouslySetInnerHTML={{ __html: experience?.workSummery }}
           />
         </div>
