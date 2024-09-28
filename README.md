@@ -7,12 +7,16 @@ Elevate your job application process with CV Maker AI, an innovative application
 - Jeremia Abner Kristianto
 
 ## Techs
-Frontend:
+Frontend
 - React
 
-Backend:
+Backend
 - Supabase
 
-AI:
+AI
 - Gemini (Google)
+
+## Database Design
+![DatabaseCVMAKERAI](https://github.com/user-attachments/assets/6d2ce3b5-cf4e-4689-8be2-3daea161f3fe)
+
 
