@@ -26,11 +26,11 @@ function View() {
     <CVContext.Provider value={{ cvDetail, setCvDetail }}>
       <div id="no-print">
         <Header />
-        <div className="mx-10 my-10 md:mx-20 lg:mx-36">
+        <div className="my-10 sm:mx-10 md:mx-20 lg:mx-36">
           <h2 className="text-center text-2xl font-medium">
             Download & Share your CV
           </h2>
-          <div className="my-10 flex justify-between px-44">
+          <div className="my-10 flex justify-between px-12 lg:px-44">
             <Button onClick={handlePDF}>Download</Button>
             <RWebShare
               data={{
