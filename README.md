@@ -7,8 +7,18 @@ Elevate your job application process with CV Maker AI, an innovative application
 - Jeremia Abner Kristianto
 
 ## Techs
+Authentication
+- Clerk
+
 Frontend
 - React
+  - react-query
+  - react-router-dom
+  - react-uuid
+
+Styling
+- Tailwind
+- Shacdn UI
 
 Backend
 - Supabase
