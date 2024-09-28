@@ -1,3 +1,5 @@
+import { dateFormat } from "@/helper/dateFormat";
+
 function ExperienceDetail({ cvDetail }) {
   return (
     <div className="my-6">
@@ -8,9 +10,13 @@ function ExperienceDetail({ cvDetail }) {
           <h2 className="text-sm font-bold">{experience?.title}</h2>
           <h2 className="flex justify-between text-xs">
             {experience?.companyName}, {experience?.city}, {experience?.state}
-            <span>
-              {experience?.startDate} -{" "}
-              {experience?.currentlyWorking ? "Present" : experience?.endDate}
+            <span className="text-gray-500">
+              <i>{dateFormat(experience?.startDate)}</i> -{" "}
+              <i>
+                {!experience?.endDate
+                  ? "Present"
+                  : dateFormat(experience?.endDate)}
+              </i>
             </span>
           </h2>
           {/* <p className="my-2 text-xs">{experience?.workSummery}</p> */}

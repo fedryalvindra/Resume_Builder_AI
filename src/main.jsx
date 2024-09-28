@@ -1,16 +1,19 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SignInPage from "./auth/sign-in/SignInPage.jsx";
-import Home from "./home/Home.jsx";
-import Dashboard from "./dashboard/Dashboard.jsx";
 import { ClerkProvider } from "@clerk/clerk-react";
-import EditCV from "./dashboard/cv/[cvID]/EditCV.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import View from "./my-cv/[cvID]/view/View.jsx";
+
+import App from "./App.jsx";
+import SignInPage from "./auth/sign-in/SignInPage.jsx";
+import Home from "./home/Home.jsx";
+
+const Dashboard = lazy(() => import("./dashboard/Dashboard.jsx"));
+const EditCV = lazy(() => import("./dashboard/cv/[cvID]/EditCV.jsx"));
+const View = lazy(() => import("./my-cv/[cvID]/view/View.jsx"));
+
+import "./index.css";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 

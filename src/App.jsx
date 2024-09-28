@@ -1,6 +1,7 @@
+import { useUser } from "@clerk/clerk-react";
+import { Suspense } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import "./App.css";
-import { useUser } from "@clerk/clerk-react";
 import Header from "./components/custom/Header";
 import { Toaster } from "./components/ui/toaster";
 
@@ -11,7 +12,15 @@ function App() {
   return (
     <>
       <Header />
-      <Outlet />
+      <Suspense
+        fallback={
+          <div className="flex h-60 items-center justify-center">
+            <p>Please wait...</p>
+          </div>
+        }
+      >
+        <Outlet />
+      </Suspense>
       <Toaster />
     </>
   );

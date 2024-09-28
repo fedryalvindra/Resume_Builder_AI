@@ -50,18 +50,6 @@ function Education() {
 
   const onSave = () => {
     if (!educationList.length) return;
-    let check = false;
-    educationList.forEach((education) => {
-      if (
-        !education.universityName ||
-        !education.startDate ||
-        !education.degree ||
-        !education.major
-      )
-        check = true;
-    });
-
-    if (check) return;
     mutate(
       { education: educationList },
       {

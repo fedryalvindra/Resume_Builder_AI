@@ -5,12 +5,14 @@ import { UserButton, useUser } from "@clerk/clerk-react";
 function Header() {
   const { user, isSignedIn } = useUser();
   return (
-    <header className="flex justify-between p-3 px-5 shadow-md">
-      <img width={200} height={100} src="/logo.png" alt="logo" />
+    <header className="flex justify-between p-3 px-5 shadow-sm">
+      <Link to="/">
+        <img width={200} height={100} src="/logo.png" alt="logo" />
+      </Link>
       {isSignedIn ? (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <Link to="/dashboard">
-            <Button variant="outline">Dashboard</Button>
+            <Button variant="outline">My CV</Button>
           </Link>
           <UserButton />{" "}
         </div>
