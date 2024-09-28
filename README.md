@@ -19,4 +19,9 @@ AI
 ## Database Design
 ![DatabaseCVMAKERAI](https://github.com/user-attachments/assets/6d2ce3b5-cf4e-4689-8be2-3daea161f3fe)
 
-
+## Test case plan
+![Screenshot (763)](https://github.com/user-attachments/assets/7e74fd66-ece4-4563-b80d-f6ecd9d65401)
+![Screenshot (764)](https://github.com/user-attachments/assets/72f50dec-2d3a-45bf-9c39-691addfdc4d5)
+![Screenshot (765)](https://github.com/user-attachments/assets/a8ebbc87-f7c0-4a73-922b-c5fedf6de012)
+![Screenshot (766)](https://github.com/user-attachments/assets/14660dce-f1ba-4433-a7bf-aca35964d6b6)
+![Screenshot (767)](https://github.com/user-attachments/assets/5c94c4eb-d3d4-4bce-938f-a399f001352c)
