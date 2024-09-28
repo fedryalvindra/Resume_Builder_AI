@@ -9,8 +9,10 @@ Elevate your job application process with CV Maker AI, an innovative application
 ## Techs
 Frontend:
 - React
+
 Backend:
 - Supabase
+
 AI:
 - Gemini (Google)
 
