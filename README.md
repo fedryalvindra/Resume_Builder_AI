@@ -32,11 +32,11 @@ AI
 - Gemini (Google)
 
 ## Use Case
-1.User Login/registration
-2.create resume
-3.Edit resume
-4.Save resume with PDF
-5.Generate Summary with AI
+1. User Login/registration
+2. Create resume
+3. Edit resume
+4. Save resume with PDF
+5. Generate Summary with AI
 
 ## Database Design
 ![DatabaseCVMAKERAI](https://github.com/user-attachments/assets/6d2ce3b5-cf4e-4689-8be2-3daea161f3fe)
